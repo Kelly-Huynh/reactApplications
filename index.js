@@ -29,10 +29,8 @@ const fetchData = async (URL) =>{
 let punchline;
 
 fetchData(randomJokeURL).then(jokeData => {
-
     document.querySelector("#setup").innerText = jokeData.setup;
     punchline = jokeData.punchline;
-
 });
 
 const paragraph = document.querySelector("p");
@@ -73,38 +71,20 @@ const attachJokeListener = () => {
 attachJokeListener();
 
 
+const tenJokesURL = "https://official-joke-api.appspot.com/jokes/ten"
 
-
-
-// const tenJokesURL = "https://official-joke-api.appspot.com/jokes/ten"
-
-// fetchJokeData(tenJokesURL).then(jokesData => {
-//     jokesData.forEach((joke) => {
-//         // setup div
-//         const jokeSetupDiv = document.createElement("div");
-//         const jokePunchlineDiv = document.createElement("div");
-//         // add to div
-//         jokeSetupDiv.textContent = joke.setup;
-//         jokePunchlineDiv.textContent = joke.punchline;
-//         // add to page
-//         body.appendChild(jokeSetupDiv);
-//         body.appendChild(jokePunchlineDiv);
-//         // create break line
-//         body.appendChild(document.createElement("p"));
-//     });
-// });
-
-// const buttonParagraph = document.createElement("p");
-// const newButton = document.createElement("button");
-// newButton.innerText = "Click Me";
-// buttonParagraph.appendChild(newButton);
-
-// const buttonEl = document.querySelector('#my-button');
-// buttonEl.innerText = "Click Me";
-// buttonParagraph.appendChild(buttonEl);
-// body.appendChild(buttonParagraph);
-
-// buttonEl.addEventListener('click', () => {
-//     fetchData();
-//     console.log('clicked!');
-// });
+fetchJokeData(tenJokesURL).then(jokesData => {
+    jokesData.forEach((joke) => {
+        // setup div
+        const jokeSetupDiv = document.createElement("div");
+        const jokePunchlineDiv = document.createElement("div");
+        // add to div
+        jokeSetupDiv.textContent = joke.setup;
+        jokePunchlineDiv.textContent = joke.punchline;
+        // add to page
+        body.appendChild(jokeSetupDiv);
+        body.appendChild(jokePunchlineDiv);
+        // create break line
+        body.appendChild(document.createElement("p"));
+    });
+});
